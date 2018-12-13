@@ -69,7 +69,9 @@ class Application
     $this->request->prepareUrl();
     $this->file->requires('App/index.php');
     list($controller, $method, $arguments) = $this->route->getProperRoute();
-    $this->load->action($controller,$method,$arguments);
+    $output = (string)$this->load->action($controller, $method, $arguments);
+    $this->response->setOutput($output);
+    $this->response->send();
   }
 
   /**
@@ -149,10 +151,10 @@ class Application
       'session' => 'System\\Session',
       'route' => 'System\\Route',
       'cookie' => 'System\\Cookie',
-      'load' => 'System\\Load',
+      'load' => 'System\\Loader',
       'html' => 'System\\Html',
       'db' => 'System\\Database',
-      'view' => 'System\\View\\Request',
+      'view' => 'System\\View\\ViewFactory',
     ];
 
   }

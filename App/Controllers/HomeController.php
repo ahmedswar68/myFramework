@@ -8,10 +8,13 @@
 
 namespace App\Controllers;
 
-class HomeController
+use System\Controller;
+
+class HomeController extends Controller
 {
   public function index()
   {
-    echo 'welcome home';
+    $data['name'] = 'SWAR';
+    return $this->view->render('home', $data);
   }
 }

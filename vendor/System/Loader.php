@@ -9,7 +9,7 @@
 namespace System;
 
 
-class Load
+class Loader
 {
   private $app;
   private $controllers = [];
@@ -17,7 +17,6 @@ class Load
 
   public function __construct(Application $app)
   {
-
     $this->app = $app;
   }
 
@@ -27,6 +26,7 @@ class Load
    * @param $controller
    * @param $method
    * @param $arguments
+   * @return mixed
    */
   public function action($controller, $method, $arguments)
   {
